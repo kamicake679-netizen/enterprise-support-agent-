@@ -1,0 +1,39 @@
+# Git & 本地工具
+.git/
+.gitignore
+.agents/
+
+# Python 虚拟环境与缓存
+.venv/
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 本地密钥与敏感配置（运行时通过 volume / env_file 注入）
+.env
+.env.local
+.env.*.local
+
+# 运行时生成的本地数据（运行时由容器入口初始化或通过 ./data 挂载）
+data/chroma_db/
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+eval/results/
+
+# 本地辅助脚本与编辑器文件
+start.bat
+rollback.bat
+rollback.ps1
+.idea/
+.vscode/
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

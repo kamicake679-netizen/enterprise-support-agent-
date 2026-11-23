@@ -1,0 +1,27 @@
+services:
+  nebulalink-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nebulalink-support-agent:latest
+    container_name: nebulalink-support-agent
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./.env:/app/.env:ro
+      - ./data:/app/data
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5)"
+        ]
+      interval: 30s
+      timeout: 10s
+      start_period: 60s
+      retries: 3

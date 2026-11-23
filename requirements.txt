@@ -1,0 +1,22 @@
+# Web & API 框架
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+
+# 通用 OpenAI 兼容协议客户端
+openai>=1.55.0
+
+# 配置管理与环境加载
+pydantic>=2.9.0
+pydantic-settings>=2.6.0
+python-dotenv>=1.0.1
+
+# 混合检索 RAG（向量库 + BM25 + 中文分词）
+chromadb>=0.5.20
+rank-bm25>=0.2.2
+jieba>=0.42.1
+
+# HTTP 客户端（用于可选 Rerank / 评测 / 健康检查）
+httpx>=0.27.2
+
+# 测试框架
+pytest>=8.3.0

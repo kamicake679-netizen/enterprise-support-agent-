@@ -1,0 +1,402 @@
+[
+  {
+    "id": "EVAL-001",
+    "category": "normal_kb",
+    "question": "NL-Pro2026、NL-Air3 和 NL-Studio 这三款耳机的官方建议零售价分别是多少？",
+    "ground_truth": "NL-Pro2026 官方建议零售价为 ¥1,299，NL-Air3 为 ¥599，NL-Studio 为 ¥1,899。",
+    "expected_source": "01_产品型号与核心参数对比.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-002",
+    "category": "normal_kb",
+    "question": "NL-Air3 支持主动降噪（ANC）和无线充电吗？",
+    "ground_truth": "不支持。NL-Air3 为半入耳式结构，不支持主动降噪（ANC）与通透模式，仅支持通话降噪（ENC），也不支持无线充电。",
+    "expected_source": "01_产品型号与核心参数对比.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-003",
+    "category": "normal_kb",
+    "question": "NL-Studio 头戴式耳机支持有线连接吗？有哪些接口？",
+    "ground_truth": "支持。NL-Studio 支持 3.5mm 音频线模拟输入以及 USB-C 无损音频直连（最高 24bit/96kHz）。",
+    "expected_source": "01_产品型号与核心参数对比.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-004",
+    "category": "normal_kb",
+    "question": "七天无理由退货的期限是从下单时算起，还是从签收时算起？",
+    "ground_truth": "自物流信息显示用户实际签收商品次日零时起算，满 168 小时（7 个自然日）内可申请七天无理由退货。",
+    "expected_source": "02_七天无理由退换货政策.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-005",
+    "category": "normal_kb",
+    "question": "我买的耳机拆封后已经蓝牙配对激活使用了，没有质量问题，还能申请七天无理由退货吗？",
+    "ground_truth": "在外观无磕碰划痕、功能完好且配件齐全的前提下可以申请七天无理由退货，但需扣除商品实付金额的 15% 作为包装及卫生消杀损耗费。",
+    "expected_source": "02_七天无理由退换货政策.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-006",
+    "category": "normal_kb",
+    "question": "因为个人不喜欢申请七天无理由退货，寄回的运费由谁承担？可以发到付吗？",
+    "ground_truth": "非质量问题的七天无理由退货，寄回运费由用户自行承担，建议选择顺丰或京东快递保价寄回，不支持到付。",
+    "expected_source": "02_七天无理由退换货政策.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-007",
+    "category": "normal_kb",
+    "question": "哪些特殊商品不适用七天无理由退货政策？",
+    "ground_truth": "不适用七天无理由退货的特殊商品包括：官网“激光镌刻定制版”刻字耳机（除硬件质量问题外）、单独购买的已拆封硅胶耳塞套/替换海绵耳罩等个人卫生耗材配件，以及无质量问题但已超过签收 7 个自然日的订单。",
+    "expected_source": "02_七天无理由退换货政策.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-008",
+    "category": "normal_kb",
+    "question": "星云智联耳机的标准质保期是多久？如果找不到购机凭证怎么算？",
+    "ground_truth": "整机标准质保期为自用户实际签收次日起算 12 个月（1 年）。若无法提供有效购机凭证或物流签收记录，则以产品出厂序列号（SN 码）对应出厂日期顺延 30 天起算 12 个月。",
+    "expected_source": "03_质保维修与延保服务条款.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-009",
+    "category": "normal_kb",
+    "question": "耳机在 1 年质保期内电池衰减严重，官方给免费换吗？",
+    "ground_truth": "在 12 个月标准质保期内，若耳机或充电盒经官方售后设备实测电池最大容量/健康度低于 80%，或出现充不进电、单次续航不足标称值 50% 等异常，属于非人为性能故障，可免费更换新机或全新电池模块。",
+    "expected_source": "03_质保维修与延保服务条款.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-010",
+    "category": "normal_kb",
+    "question": "耳机掉进水里或者充电盒进水了，在免费质保范围内吗？",
+    "ground_truth": "不在免费质保范围内。耳机掉入水中或充电盒进水（所有型号充电盒均不防水）属于非质保范围，需付费维修；但如果购买了 NebulaCare+ 延保服务且在保障期内，可走意外进液保障通道。",
+    "expected_source": "03_质保维修与延保服务条款.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-011",
+    "category": "normal_kb",
+    "question": "NL-Pro2026 和 NL-Air3 出现单边无声音或左右耳无法配对时，怎么恢复出厂设置？",
+    "ground_truth": "1. 在手机蓝牙设置中忽略此设备；2. 将两只耳机放入充电盒并保持盒盖打开（充电盒电量需高于 20%）；3. 长按充电盒背面/底部的功能配对键 10 秒，直到白灯快闪 3 次后转红灯常亮 2 秒，随后熄灭并恢复白灯慢闪；4. 合盖等待 5 秒后重新开盖配对。",
+    "expected_source": "04_常见故障自助排查手册.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-012",
+    "category": "normal_kb",
+    "question": "在地铁或机场听歌时声音经常卡顿断连，有什么自助解决办法？",
+    "ground_truth": "这是由于启用了高码率编码（如 LDAC 990kbps 或 LHDC 5.0）在强射频干扰环境下容易丢包。可打开 NebulaLink App →「音质与连接」→ 将蓝牙编码切换为 AAC 或连接稳定性优先模式。",
+    "expected_source": "04_常见故障自助排查手册.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-013",
+    "category": "normal_kb",
+    "question": "耳机放回充电盒后还是不断连手机，可能是什么原因？怎么排查？",
+    "ground_truth": "可能是金属触点氧化脏污或充电盒完全亏电导致无法触发霍尔开关关机。建议使用干燥无尘棉签蘸取少量 75% 医用酒精擦拭耳机底部与充电盒内部金属触点并晾干 10 分钟；若充电盒指示灯不亮，请用原装 USB-C 线连接 5V 充电器充电 30 分钟以上激活。",
+    "expected_source": "04_常见故障自助排查手册.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-014",
+    "category": "normal_kb",
+    "question": "单只耳机不小心进水后声音变小，能用吹风机热风吹干吗？",
+    "ground_truth": "切勿使用吹风机热风直吹（高温会损坏振膜并融化防水胶）。应立即甩干表面水分，用吸水纸轻吸出音孔与麦克风孔，置于通风干燥处静置 24 小时后再试。",
+    "expected_source": "04_常见故障自助排查手册.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-015",
+    "category": "normal_kb",
+    "question": "常规订单和双 11 等大促订单的价格保护（价保）时效分别是多久？",
+    "ground_truth": "常规期价保为自下单付款之时起 7 个自然日（168 小时）内；大型促销期（618、双 11、年货节等官方标注“30 天价保”的活动订单）为自下单付款之时起 30 个自然日内。",
+    "expected_source": "05_大促价保与发票规则.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-016",
+    "category": "normal_kb",
+    "question": "使用个人专属 88VIP 消费券或银行卡支付立减后降价，能参与价保对比吗？",
+    "ground_truth": "不能。个人专属 88VIP/PLUS 消费券、银行卡支付立减、秒杀限量前 N 名半价、以旧换新补贴、直播间限量福袋抽奖价、第三方比价平台补贴等特殊优惠，均不计入降价对比基数。",
+    "expected_source": "05_大促价保与发票规则.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-017",
+    "category": "normal_kb",
+    "question": "企业用户想开具增值税专用发票，需要提供哪些开票资料？多久能开出来？",
+    "ground_truth": "需提供完整开票资料：企业名称、纳税人识别号、注册地址、注册电话、开户银行及银行账号。专票通常在订单确认收货无退货风险后的 3-5 个工作日内开具并推送电子版。",
+    "expected_source": "05_大促价保与发票规则.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-018",
+    "category": "normal_kb",
+    "question": "如果电子普通发票抬头填错了，签收多久内可以申请红冲重开？",
+    "ground_truth": "订单签收后 30 个自然日内可联系客服申请“红冲重开”，提供新抬头信息后将在 2 个工作日内重新开具；超过 30 天原则上不支持因个人填写错误导致的跨月重开。",
+    "expected_source": "05_大促价保与发票规则.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-019",
+    "category": "normal_kb",
+    "question": "什么情况下客服系统必须创建 P0 紧急工单？响应时效是多久？",
+    "ground_truth": "当用户反馈耳机出现发烫冒烟、电池鼓包、充电接口烧焦、漏液、佩戴过敏红肿等安全与人身隐患问题时，必须创建 P0（紧急）工单，响应时效为 15 分钟内由安全专员电话回访。",
+    "expected_source": "06_人工客服介入与工单升级标准.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-020",
+    "category": "normal_kb",
+    "question": "遇到快递显示已签收但用户实际未收到货，属于什么工单优先级？",
+    "ground_truth": "属于“物流异常与丢件”场景，工单优先级为 P1（高优），处理 SLA 为 2 小时内核实物流并反馈。",
+    "expected_source": "06_人工客服介入与工单升级标准.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-021",
+    "category": "exact_detail",
+    "question": "NL-Pro2026 的最大主动降噪深度是多少 dB？单耳和含充电盒重量分别是多少克？",
+    "ground_truth": "NL-Pro2026 的最大主动降噪深度为 -52dB，单耳重量 5.2g，含充电盒重量 46g。",
+    "expected_source": "01_产品型号与核心参数对比.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-022",
+    "category": "exact_detail",
+    "question": "NL-Studio 搭载的是什么蓝牙芯片和声学单元？开启降噪后的续航是多少小时？",
+    "ground_truth": "NL-Studio 搭载 NebulaAudio S3 Pro 芯片与 40mm 定制镀铍动圈单元，开启降噪后续航为 45 小时（关闭降噪为 65 小时）。",
+    "expected_source": "01_产品型号与核心参数对比.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-023",
+    "category": "exact_detail",
+    "question": "NL-Pro2026、NL-Air3 和 NL-Studio 的防尘防水等级分别是什么？充电盒防水吗？",
+    "ground_truth": "NL-Pro2026 耳机本体为 IP55，NL-Air3 耳机本体为 IPX4，NL-Studio 无防水等级（仅防日常汗液泼溅）。所有型号的充电盒均不防水。",
+    "expected_source": "01_产品型号与核心参数对比.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-024",
+    "category": "exact_detail",
+    "question": "如果七天无理由退货时，耳机已拆封但未激活且无划痕，需要扣除多少比例的损耗费？最低不少于多少钱？",
+    "ground_truth": "需扣除商品实付金额的 10% 作为整新与包装损耗费，最低不少于 ¥30。",
+    "expected_source": "02_七天无理由退换货政策.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-025",
+    "category": "exact_detail",
+    "question": "七天无理由退货时，随单赠送的定制耳机保护壳或便携收纳包遗失了，分别要扣多少钱？",
+    "ground_truth": "耳机保护壳按 ¥49 扣除，便携收纳包按 ¥69 扣除。",
+    "expected_source": "02_七天无理由退换货政策.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-026",
+    "category": "exact_detail",
+    "question": "因为商品质量问题退换货，如果用户先垫付了寄回运费，报销上限是多少钱？",
+    "ground_truth": "用户先垫付后凭快递电子面单报销，上限为 ¥20。",
+    "expected_source": "02_七天无理由退换货政策.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-027",
+    "category": "exact_detail",
+    "question": "NL-Pro2026 单只耳机补购、充电盒补购以及保外整机换新分别是多少钱？",
+    "ground_truth": "NL-Pro2026 单只左耳/右耳补购价为 ¥399/只，充电盒补购价为 ¥449/个，保外整机换新（含人工）为 ¥699。",
+    "expected_source": "03_质保维修与延保服务条款.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-028",
+    "category": "exact_detail",
+    "question": "NL-Studio 的 NebulaCare+ 延保服务价格是多少？包含哪些具体权益？",
+    "ground_truth": "NL-Studio 的 NebulaCare+ 服务价格为 ¥249。权益包括：质保期由 1 年延长至 2 年（24 个月）；含 2 次头梁/单元意外损坏 ¥199 优惠换新权益；免费赠送 1 对原装替换耳罩。",
+    "expected_source": "03_质保维修与延保服务条款.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-029",
+    "category": "exact_detail",
+    "question": "NL-Studio 头戴式耳机如何进行硬重置？需要同时按住哪两个键保持几秒？",
+    "ground_truth": "在开机且未连接 3.5mm 或 USB-C 音频线状态下，同时按住“音量+”键与“电源/多功能键”保持 7 秒，听到提示音且指示灯红蓝交替快闪 3 次后松手即可。",
+    "expected_source": "04_常见故障自助排查手册.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-030",
+    "category": "exact_detail",
+    "question": "单只补购新耳机后，如何与旧耳机进行出厂级强制配对同步？长按功能键几秒？",
+    "ground_truth": "将新旧两只耳机同时放入充电盒，合盖连接电源充电 15 分钟；开盖后长按充电盒功能键 15 秒，直至指示灯转为绿灯快闪 5 次，即可完成双耳绑定。",
+    "expected_source": "04_常见故障自助排查手册.md",
+    "expected_tool": "search_knowledge_base"
+  },
+  {
+    "id": "EVAL-031",
+    "category": "tool_call",
+    "question": "帮我查一下订单 NL20261120004 的状态和物流单号，顺便问下它享受几天价保？",
+    "ground_truth": "订单 NL20261120004（周子涵，NL-Pro2026 冰川银，实付 ¥1,199）当前状态为已发货（运输中），物流单号为 SF142098765001；该订单带有“双11_30天价保”标签，自下单付款起享受 30 个自然日价保。",
+    "expected_source": "05_大促价保与发票规则.md",
+    "expected_tool": "query_order"
+  },
+  {
+    "id": "EVAL-032",
+    "category": "tool_call",
+    "question": "我的订单号是 NL20261118006，买的是 NL-Pro2026，现在已经签收了，如果我想七天无理由退货要扣损耗费吗？",
+    "ground_truth": "订单 NL20261118006（李明哲，NL-Pro2026，实付 ¥1,299）当前处于“签收3天内”且系统显示已激活（is_activated=1）。在外观无磕碰划痕、功能完好且配件齐全的前提下申请七天无理由退货，需扣除实付金额的 15%（即 ¥194.85）作为包装及卫生消杀损耗费。",
+    "expected_source": "02_七天无理由退换货政策.md",
+    "expected_tool": "query_order"
+  },
+  {
+    "id": "EVAL-033",
+    "category": "tool_call",
+    "question": "查一下订单 NL20261118007 的情况，我还没拆封激活，想退货能全额退吗？",
+    "ground_truth": "订单 NL20261118007（王语嫣，NL-Air3 云雾白，实付 ¥599）处于“签收3天内”且未激活（is_activated=0）。若外包装透明塑封膜完好无破损、未激活使用且配件赠品齐全，支持 100% 全额退款（¥599）。",
+    "expected_source": "02_七天无理由退换货政策.md",
+    "expected_tool": "query_order"
+  },
+  {
+    "id": "EVAL-034",
+    "category": "tool_call",
+    "question": "帮我查下订单 NL20250901017，我的耳机现在充不进电了，还能免费质保吗？",
+    "ground_truth": "订单 NL20250901017（郭志强，NL-Air3 星耀黑，2025-09-04 签收）已过 1 年标准质保期且未购买 NebulaCare+ 延保服务（has_nebulacare=0），因此无法免费质保，需按保外付费标准维修或整机换新（¥329）。",
+    "expected_source": "03_质保维修与延保服务条款.md",
+    "expected_tool": "query_order"
+  },
+  {
+    "id": "EVAL-035",
+    "category": "tool_call",
+    "question": "订单 NL20250815018 是我去年 8 月买的 NL-Pro2026，昨天不小心掉水里了，我有延保吗？换新多少钱？",
+    "ground_truth": "订单 NL20250815018（何诗琪，NL-Pro2026 冰川银）虽然已过 1 年标准质保期，但您购买了 NebulaCare+ 延保服务（has_nebulacare=1），质保期已延长至 2 年，且包含 2 次意外进液/摔坏半价换新权益。",
+    "expected_source": "03_质保维修与延保服务条款.md",
+    "expected_tool": "query_order"
+  },
+  {
+    "id": "EVAL-036",
+    "category": "tool_call",
+    "question": "我的订单 NL20261122001 什么时候发货？现在是什么状态？",
+    "ground_truth": "订单 NL20261122001（陈默，NL-Pro2026 星耀黑，实付 ¥1,299）当前状态为“待发货”，尚未生成物流单号。",
+    "expected_source": null,
+    "expected_tool": "query_order"
+  },
+  {
+    "id": "EVAL-037",
+    "category": "tool_call",
+    "question": "帮我看看订单 NL20261110020 的退款进度，已经退了吗？",
+    "ground_truth": "订单 NL20261110020（罗小雨，NL-Air3 樱花粉，实付 ¥599）当前订单状态为“已退款”。",
+    "expected_source": null,
+    "expected_tool": "query_order"
+  },
+  {
+    "id": "EVAL-038",
+    "category": "tool_call",
+    "question": "我的订单 NL20261108010 买的是 NL-Pro2026，昨天耳机充电接口突然发烫冒烟了！请立刻帮我处理！",
+    "ground_truth": "已先提醒用户立即停止使用该设备并远离易燃物，核实订单 NL20261108010（刘洋，NL-Pro2026）后，立即创建 P0 紧急安全隐患工单（issue_type=safety_urgent），安排安全专员在 15 分钟内电话回访。",
+    "expected_source": "06_人工客服介入与工单升级标准.md",
+    "expected_tool": "create_ticket"
+  },
+  {
+    "id": "EVAL-039",
+    "category": "tool_call",
+    "question": "订单 NL20260915013 的 NL-Pro2026 左耳彻底没声音了，我已经按手册清过触点也长按 10 秒硬重置了还是不行，帮我建个寄修工单吧。",
+    "ground_truth": "核实订单 NL20260915013（杨帆，NL-Pro2026 冰川银，在保且有 NebulaCare+）后，创建 P2 常规质量故障工单（issue_type=quality_issue），24 小时内生成寄修单与上门取件码。",
+    "expected_source": "06_人工客服介入与工单升级标准.md",
+    "expected_tool": "create_ticket"
+  },
+  {
+    "id": "EVAL-040",
+    "category": "tool_call",
+    "question": "订单 NL20261105012 显示已签收但我根本没收到货，快递员也联系不上，我要投诉并转人工核实！",
+    "ground_truth": "核实订单 NL20261105012（黄文博，NL-Studio 钛空银，物流单号 SF142098765009）后，创建 P1 高优物流异常工单（issue_type=logistics），2 小时内核实物流并反馈。",
+    "expected_source": "06_人工客服介入与工单升级标准.md",
+    "expected_tool": "create_ticket"
+  },
+  {
+    "id": "EVAL-041",
+    "category": "unanswerable",
+    "question": "星云智联 NL-Pro2026 什么时候会发布下一代 NL-Pro2027？预计售价多少？",
+    "ground_truth": "知识库中未提及 NL-Pro2027 的发布时间或预计售价，无法回答该问题，请以官方后续公告为准。",
+    "expected_source": null,
+    "expected_tool": null
+  },
+  {
+    "id": "EVAL-042",
+    "category": "unanswerable",
+    "question": "NL-Pro2026 和苹果 AirPods Pro 3 相比，哪一款的音质和降噪更好？",
+    "ground_truth": "知识库中仅包含星云智联自家产品（NL-Pro2026、NL-Air3、NL-Studio）的参数信息，没有与第三方竞品（如 AirPods Pro 3）的对比评测数据，无法客观比较。",
+    "expected_source": null,
+    "expected_tool": null
+  },
+  {
+    "id": "EVAL-043",
+    "category": "unanswerable",
+    "question": "星云智联在北京和上海的线下实体门店具体地址在哪里？营业时间是几点到几点？",
+    "ground_truth": "知识库中未收录星云智联线下实体门店的具体地址及营业时间信息，无法提供该信息。",
+    "expected_source": null,
+    "expected_tool": null
+  },
+  {
+    "id": "EVAL-044",
+    "category": "unanswerable",
+    "question": "你们公司的创始人是谁？公司是哪一年成立的？目前有多少员工？",
+    "ground_truth": "知识库中仅包含产品参数、售后政策、故障排查与工单标准，未包含公司创始人、成立年份及员工规模等企业背景信息，无法回答。",
+    "expected_source": null,
+    "expected_tool": null
+  },
+  {
+    "id": "EVAL-045",
+    "category": "unanswerable",
+    "question": "NL-Studio 头戴式耳机支持蓝牙连接索尼 PS5 游戏机直接语音开黑吗？",
+    "ground_truth": "知识库中未提及 NL-Studio 与索尼 PS5 游戏机的兼容性及直接语音开黑支持情况，无法确认。",
+    "expected_source": null,
+    "expected_tool": null
+  },
+  {
+    "id": "EVAL-046",
+    "category": "unanswerable",
+    "question": "星云智联有专门的儿童护耳模式或者助听器辅听功能吗？",
+    "ground_truth": "知识库中未提及儿童护耳模式或助听器辅听功能，无法确认产品是否具备该功能。",
+    "expected_source": null,
+    "expected_tool": null
+  },
+  {
+    "id": "EVAL-047",
+    "category": "unanswerable",
+    "question": "我可以用花呗分期 12 期免息购买 NL-Studio 吗？支持哪些分期渠道？",
+    "ground_truth": "知识库中未提及花呗分期免息或具体的分期付款渠道政策，无法回答，建议以商城下单结算页面显示为准。",
+    "expected_source": null,
+    "expected_tool": null
+  },
+  {
+    "id": "EVAL-048",
+    "category": "unanswerable",
+    "question": "NL-Pro2026 的充电盒电池容量是多少毫安时（mAh）？",
+    "ground_truth": "知识库中仅说明了 NL-Pro2026 的单次续航（8.5 小时/降噪 6 小时）与综合续航（36 小时/降噪 26 小时），未提及充电盒的具体电池容量（mAh）数值，无法回答。",
+    "expected_source": null,
+    "expected_tool": null
+  },
+  {
+    "id": "EVAL-049",
+    "category": "unanswerable",
+    "question": "你们支持用旧的华为或小米耳机参与以旧换新抵扣吗？最高能抵多少钱？",
+    "ground_truth": "知识库仅在价保规则中提到“以旧换新补贴不参与价保对比”，但未包含以旧换新的具体支持品牌或最高抵扣金额规则，无法回答。",
+    "expected_source": null,
+    "expected_tool": null
+  },
+  {
+    "id": "EVAL-050",
+    "category": "unanswerable",
+    "question": "NebulaLink App 可以在鸿蒙 HarmonyOS NEXT 纯血版系统上下载使用吗？",
+    "ground_truth": "知识库中未提及 NebulaLink App 对鸿蒙 HarmonyOS NEXT 系统的适配与下载情况，无法确认。",
+    "expected_source": null,
+    "expected_tool": null
+  }
+]

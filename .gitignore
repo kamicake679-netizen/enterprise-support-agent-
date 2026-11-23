@@ -1,0 +1,50 @@
+# Antigravity hooks state (local runtime state)
+.agents/hooks-state/
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+ENV/
+
+# Node / Frontend dependencies and build outputs
+node_modules/
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+
+# IDE and OS generated files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.tmp
+*.bak
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment secrets
+.env
+.env.local
+.env.*.local
+
+# Project data & vector store (runtime / generated)
+data/chroma_db/
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+eval/results/
