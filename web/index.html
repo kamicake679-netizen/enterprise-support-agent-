@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>星云智联 NebulaLink · 企业级智能客服 Agent 演示台</title>
   <style>
     :root {
@@ -74,6 +74,7 @@
       display: flex;
       flex-direction: column;
       height: 100vh;
+      height: 100dvh;
       overflow: hidden;
     }
 
@@ -115,18 +116,27 @@
       box-shadow: 0 2px 8px rgba(79, 70, 229, 0.28);
     }
 
+    .brand-text {
+      min-width: 0;
+      overflow: hidden;
+    }
+
     .brand-text h1 {
       font-size: 15px;
       font-weight: 700;
       color: var(--text-primary);
       line-height: 1.25;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .brand-text p {
       font-size: 12px;
       color: var(--text-muted);
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .topbar-right {
@@ -973,16 +983,359 @@
       background: var(--bg-subtle);
     }
 
+    /* 移动端专用控件（桌面端默认隐藏） */
+    .btn-mobile-inspector {
+      display: none;
+    }
+
+    .mobile-inspector-badge {
+      display: none;
+      min-width: 17px;
+      height: 17px;
+      padding: 0 5px;
+      border-radius: 999px;
+      background: var(--brand);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .mobile-inspector-badge.has-data {
+      display: inline-flex;
+    }
+
+    .btn-orders-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      color: var(--brand);
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .btn-orders-toggle:hover {
+      background: var(--brand-soft);
+    }
+
+    .inspector-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .btn-close-inspector {
+      display: none;
+      height: 28px;
+      padding: 0 10px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--bg-surface);
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .btn-close-inspector:hover {
+      background: var(--bg-muted);
+      color: var(--text-primary);
+    }
+
+    .inspector-backdrop {
+      display: none;
+    }
+
     @media (max-width: 980px) {
-      .workspace {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1.2fr 1fr;
+      .topbar {
+        height: auto;
+        padding: 8px 12px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
       }
-      .quick-prompts {
-        grid-template-columns: 1fr;
+
+      .brand {
+        gap: 9px;
       }
+
+      .brand-logo {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        font-size: 13px;
+      }
+
+      .brand-text h1 {
+        font-size: 14px;
+      }
+
+      .brand-text p {
+        display: none;
+      }
+
       .health-pill {
         display: none;
+      }
+
+      .topbar-right {
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 6px;
+      }
+
+      .mode-select {
+        flex: 1;
+        min-width: 0;
+        height: 32px;
+        font-size: 12px;
+        padding: 0 8px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .btn-ghost {
+        height: 32px;
+        padding: 0 9px;
+        font-size: 12px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .btn-mobile-inspector {
+        display: inline-flex;
+        border-color: var(--brand-border);
+        background: var(--brand-soft);
+        color: var(--brand);
+      }
+
+      /* 主工作区单栏全屏展示聊天窗口，思考面板默认隐藏 */
+      .workspace {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        padding: 8px;
+        gap: 0;
+      }
+
+      .panel {
+        border-radius: 12px;
+      }
+
+      /* 模拟订单条紧凑化并支持折叠 */
+      .orders-bar {
+        padding: 7px 10px;
+      }
+
+      .orders-bar-header {
+        margin-bottom: 6px;
+      }
+
+      .orders-bar-hint {
+        display: none;
+      }
+
+      .btn-orders-toggle {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .orders-bar.collapsed .orders-bar-header {
+        margin-bottom: 0;
+      }
+
+      .orders-bar.collapsed .orders-list {
+        display: none;
+      }
+
+      .orders-list {
+        padding-bottom: 2px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .order-chip {
+        padding: 4px 8px;
+        font-size: 11px;
+      }
+
+      /* 聊天消息区最大化空间 */
+      .chat-messages {
+        padding: 12px 10px 8px;
+        gap: 12px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .welcome-card {
+        padding: 12px 13px;
+      }
+
+      .welcome-card h2 {
+        font-size: 13.5px;
+      }
+
+      .welcome-card p {
+        font-size: 12.5px;
+        line-height: 1.55;
+      }
+
+      .welcome-badges {
+        margin-top: 8px;
+        gap: 5px;
+      }
+
+      .welcome-badge {
+        font-size: 10.5px;
+        padding: 2px 6px;
+      }
+
+      .avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        font-size: 11.5px;
+      }
+
+      .msg-row {
+        gap: 8px;
+      }
+
+      .msg-content-wrap {
+        max-width: calc(100% - 36px);
+      }
+
+      .bubble {
+        padding: 10px 12px;
+        font-size: 13.5px;
+        line-height: 1.6;
+      }
+
+      .msg-meta {
+        gap: 5px;
+      }
+
+      /* 快捷提问区改为单行横向滑动胶囊，不再纵向挤占回答区 */
+      .composer-area {
+        padding: 8px 10px calc(10px + env(safe-area-inset-bottom, 0px));
+      }
+
+      .quick-prompts {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 6px;
+        margin-bottom: 8px;
+        padding-bottom: 2px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .quick-btn {
+        flex-shrink: 0;
+        padding: 5px 10px;
+        border-radius: 999px;
+      }
+
+      .quick-btn-title {
+        font-size: 11.5px;
+      }
+
+      .quick-btn-desc {
+        display: none;
+      }
+
+      .input-box {
+        padding: 6px 8px 6px 12px;
+        gap: 8px;
+      }
+
+      .chat-input {
+        font-size: 15px;
+        max-height: 92px;
+      }
+
+      .btn-send {
+        height: 34px;
+        padding: 0 14px;
+        font-size: 13px;
+      }
+
+      /* 思考面板在移动端默认隐藏，点击按钮后以底部抽屉形式展开 */
+      .inspector-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.45);
+        z-index: 40;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+        display: block;
+      }
+
+      .inspector-backdrop.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .inspector-panel {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 82dvh;
+        max-height: calc(100dvh - 48px);
+        z-index: 50;
+        border-radius: 16px 16px 0 0;
+        border-bottom: none;
+        box-shadow: 0 -10px 30px rgba(15, 23, 42, 0.18);
+        transform: translateY(105%);
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.24s ease;
+      }
+
+      .inspector-panel.mobile-open {
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .inspector-header {
+        padding: 11px 14px;
+      }
+
+      .inspector-subtitle {
+        max-width: 150px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .btn-close-inspector {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .inspector-body {
+        padding: 12px 12px calc(18px + env(safe-area-inset-bottom, 0px));
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .metrics-grid {
+        gap: 8px;
+      }
+
+      .metric-card {
+        padding: 8px 10px;
+      }
+
+      .metric-value {
+        font-size: 16px;
       }
     }
   </style>
@@ -1007,6 +1360,9 @@
           <option value="optimized" selected>优化模式（混合检索 + RRF + 强溯源）</option>
           <option value="baseline">基线模式（纯向量检索 Baseline）</option>
         </select>
+        <button class="btn-ghost btn-mobile-inspector" id="btnToggleInspector" type="button" title="展开/收起 Agent 透明思考面板">
+          🧠 思考 <span class="mobile-inspector-badge" id="mobileInspectorBadge">0</span>
+        </button>
         <button class="btn-ghost" id="btnResetSession" type="button" title="清空当前会话上下文">
           ↻ 新建会话
         </button>
@@ -1018,12 +1374,13 @@
       <!-- 左侧：客服对话窗口 -->
       <section class="panel" aria-label="智能客服对话区">
         <!-- 可测试订单号清单 -->
-        <div class="orders-bar">
+        <div class="orders-bar" id="ordersBar">
           <div class="orders-bar-header">
             <div class="orders-bar-title">
               <span>🧾 可测试模拟订单号清单（Top 10）</span>
             </div>
             <span class="orders-bar-hint">点击任意订单号自动填入查询问题</span>
+            <button class="btn-orders-toggle" id="btnToggleOrders" type="button" aria-expanded="true">收起</button>
           </div>
           <div class="orders-list" id="ordersList">
             <span style="font-size: 12px; color: var(--text-muted);">正在加载模拟订单清单...</span>
@@ -1081,13 +1438,19 @@
         </div>
       </section>
 
-      <!-- 右侧：Agent 透明思考面板 -->
-      <aside class="panel" aria-label="Agent 透明思考面板">
+      <!-- 移动端思考面板遮罩层 -->
+      <div class="inspector-backdrop" id="inspectorBackdrop" aria-hidden="true"></div>
+
+      <!-- 右侧：Agent 透明思考面板（移动端默认隐藏，可点击抽屉展开） -->
+      <aside class="panel inspector-panel" id="inspectorPanel" aria-label="Agent 透明思考面板">
         <div class="inspector-header">
           <div class="inspector-title">
             <span>🧠 Agent 透明思考面板</span>
           </div>
-          <span class="inspector-subtitle" id="inspectorSubtitle">等待对话触发</span>
+          <div class="inspector-header-actions">
+            <span class="inspector-subtitle" id="inspectorSubtitle">等待对话触发</span>
+            <button class="btn-close-inspector" id="btnCloseInspector" type="button" aria-label="关闭思考面板">✕ 关闭</button>
+          </div>
         </div>
 
         <div class="inspector-body" id="inspectorBody">
@@ -1167,13 +1530,20 @@
       const healthDot = document.getElementById("healthDot");
       const healthText = document.getElementById("healthText");
       const modeSelect = document.getElementById("modeSelect");
+      const btnToggleInspector = document.getElementById("btnToggleInspector");
+      const mobileInspectorBadge = document.getElementById("mobileInspectorBadge");
       const btnResetSession = document.getElementById("btnResetSession");
+      const ordersBar = document.getElementById("ordersBar");
+      const btnToggleOrders = document.getElementById("btnToggleOrders");
       const ordersList = document.getElementById("ordersList");
       const chatMessages = document.getElementById("chatMessages");
       const chatInput = document.getElementById("chatInput");
       const btnSend = document.getElementById("btnSend");
       const quickPrompts = document.getElementById("quickPrompts");
 
+      const inspectorPanel = document.getElementById("inspectorPanel");
+      const inspectorBackdrop = document.getElementById("inspectorBackdrop");
+      const btnCloseInspector = document.getElementById("btnCloseInspector");
       const inspectorSubtitle = document.getElementById("inspectorSubtitle");
       const metricLatency = document.getElementById("metricLatency");
       const metricTools = document.getElementById("metricTools");
@@ -1183,6 +1553,37 @@
       const citationsCountBadge = document.getElementById("citationsCountBadge");
       const toolsContainer = document.getElementById("toolsContainer");
       const citationsContainer = document.getElementById("citationsContainer");
+
+      const mobileMediaQuery = window.matchMedia("(max-width: 980px)");
+
+      function isMobileViewport() {
+        return mobileMediaQuery.matches;
+      }
+
+      function setOrdersCollapsed(collapsed) {
+        ordersBar.classList.toggle("collapsed", collapsed);
+        btnToggleOrders.textContent = collapsed ? "展开" : "收起";
+        btnToggleOrders.setAttribute("aria-expanded", String(!collapsed));
+      }
+
+      function openInspectorDrawer() {
+        if (!isMobileViewport()) return;
+        inspectorPanel.classList.add("mobile-open");
+        inspectorBackdrop.classList.add("visible");
+        inspectorBackdrop.setAttribute("aria-hidden", "false");
+      }
+
+      function closeInspectorDrawer() {
+        inspectorPanel.classList.remove("mobile-open");
+        inspectorBackdrop.classList.remove("visible");
+        inspectorBackdrop.setAttribute("aria-hidden", "true");
+      }
+
+      function updateMobileInspectorBadge(count) {
+        const safeCount = Math.max(0, Number(count) || 0);
+        mobileInspectorBadge.textContent = String(safeCount);
+        mobileInspectorBadge.classList.toggle("has-data", safeCount > 0);
+      }
 
       function createSessionId() {
         return "web_" + Math.random().toString(36).slice(2, 10) + "_" + Date.now().toString(36);
@@ -1417,6 +1818,7 @@
         metricCitations.textContent = String(citations.length);
         toolsCountBadge.textContent = String(traces.length);
         citationsCountBadge.textContent = String(citations.length);
+        updateMobileInspectorBadge(traces.length + citations.length);
 
         // 特殊业务动作提示条（建工单 / 转人工）
         let bannerHtml = "";
@@ -1500,7 +1902,12 @@
         `;
 
         const inspectBtn = loadingRow.querySelector(".btn-inspect");
-        inspectBtn.addEventListener("click", () => renderInspector(turnId));
+        inspectBtn.addEventListener("click", () => {
+          renderInspector(turnId);
+          if (isMobileViewport()) {
+            openInspectorDrawer();
+          }
+        });
         loadingRow.querySelector(".bubble").addEventListener("click", () => renderInspector(turnId));
         scrollChatToBottom();
       }
@@ -1533,6 +1940,10 @@
 
         chatInput.value = "";
         autoResizeInput();
+        if (isMobileViewport()) {
+          chatInput.blur();
+          setOrdersCollapsed(true);
+        }
         appendUserMessage(text);
         const loadingRow = appendLoadingMessage();
         const bubbleEl = loadingRow.querySelector(".bubble");
@@ -1552,6 +1963,7 @@
         metricCitations.textContent = "0";
         toolsCountBadge.textContent = "0";
         citationsCountBadge.textContent = "0";
+        updateMobileInspectorBadge(0);
         specialBanners.innerHTML = "";
         toolsContainer.innerHTML = `<div class="empty-state">Agent 正在分析意图，准备调用业务工具...</div>`;
         citationsContainer.innerHTML = `<div class="empty-state">等待知识库检索结果...</div>`;
@@ -1629,6 +2041,7 @@
                 });
                 metricTools.textContent = String(liveTraces.length);
                 toolsCountBadge.textContent = String(liveTraces.length);
+                updateMobileInspectorBadge(liveTraces.length + liveCitations.length);
                 toolsContainer.innerHTML = renderTracesHtml(liveTraces);
               } else if (evt.type === "tool_result") {
                 // 更新最后一条对应工具卡片为已完成状态
@@ -1651,11 +2064,13 @@
                 }
                 metricTools.textContent = String(liveTraces.length);
                 toolsCountBadge.textContent = String(liveTraces.length);
+                updateMobileInspectorBadge(liveTraces.length + liveCitations.length);
                 toolsContainer.innerHTML = renderTracesHtml(liveTraces);
               } else if (evt.type === "citations") {
                 liveCitations = evt.citations || [];
                 metricCitations.textContent = String(liveCitations.length);
                 citationsCountBadge.textContent = String(liveCitations.length);
+                updateMobileInspectorBadge(liveTraces.length + liveCitations.length);
                 citationsContainer.innerHTML = renderCitationsHtml(liveCitations);
               } else if (evt.type === "token") {
                 streamedText += evt.content || "";
@@ -1692,7 +2107,9 @@
         } finally {
           window.clearInterval(timerId);
           setSendingState(false);
-          chatInput.focus();
+          if (!isMobileViewport()) {
+            chatInput.focus();
+          }
         }
       }
 
@@ -1723,10 +2140,15 @@
         metricCitations.textContent = "0";
         toolsCountBadge.textContent = "0";
         citationsCountBadge.textContent = "0";
+        updateMobileInspectorBadge(0);
         specialBanners.innerHTML = "";
         toolsContainer.innerHTML = `<div class="empty-state">会话已重置。发起新提问后，这里将实时呈现工具调用轨迹。</div>`;
         citationsContainer.innerHTML = `<div class="empty-state">会话已重置。发起新提问后，这里将展示命中的知识库原文片段。</div>`;
-        chatInput.focus();
+        closeInspectorDrawer();
+        setOrdersCollapsed(false);
+        if (!isMobileViewport()) {
+          chatInput.focus();
+        }
       }
 
       // 事件绑定
@@ -1748,7 +2170,47 @@
 
       btnResetSession.addEventListener("click", resetSession);
 
+      btnToggleOrders.addEventListener("click", () => {
+        setOrdersCollapsed(!ordersBar.classList.contains("collapsed"));
+      });
+
+      btnToggleInspector.addEventListener("click", () => {
+        if (inspectorPanel.classList.contains("mobile-open")) {
+          closeInspectorDrawer();
+        } else {
+          openInspectorDrawer();
+        }
+      });
+
+      btnCloseInspector.addEventListener("click", closeInspectorDrawer);
+      inspectorBackdrop.addEventListener("click", closeInspectorDrawer);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && inspectorPanel.classList.contains("mobile-open")) {
+          closeInspectorDrawer();
+        }
+      });
+
+      const DESKTOP_PLACEHOLDER = "输入您的问题，例如：查询订单 NL20261118006 的状态，或咨询 NL-Pro2026 降噪参数...（Enter 发送，Shift+Enter 换行）";
+      const MOBILE_PLACEHOLDER = "输入问题或订单号（如 NL20261118006）...";
+
+      function syncResponsivePlaceholder() {
+        chatInput.placeholder = isMobileViewport() ? MOBILE_PLACEHOLDER : DESKTOP_PLACEHOLDER;
+        if (!chatInput.value) {
+          chatInput.style.height = "auto";
+        }
+      }
+
+      mobileMediaQuery.addEventListener("change", (e) => {
+        if (!e.matches) {
+          closeInspectorDrawer();
+          setOrdersCollapsed(false);
+        }
+        syncResponsivePlaceholder();
+      });
+
       // 页面初始化
+      syncResponsivePlaceholder();
       loadHealth();
       loadOrders();
     })();
