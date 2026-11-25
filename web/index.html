@@ -358,6 +358,10 @@
       color: var(--text-secondary);
     }
 
+    .welcome-mobile-desc {
+      display: none;
+    }
+
     .welcome-badges {
       display: flex;
       flex-wrap: wrap;
@@ -1173,11 +1177,12 @@
       }
 
       .welcome-card {
-        padding: 12px 13px;
+        padding: 10px 12px;
       }
 
       .welcome-card h2 {
-        font-size: 13.5px;
+        font-size: 13px;
+        margin-bottom: 4px;
       }
 
       .welcome-card p {
@@ -1185,14 +1190,13 @@
         line-height: 1.55;
       }
 
+      .welcome-desktop-desc,
       .welcome-badges {
-        margin-top: 8px;
-        gap: 5px;
+        display: none;
       }
 
-      .welcome-badge {
-        font-size: 10.5px;
-        padding: 2px 6px;
+      .welcome-mobile-desc {
+        display: block;
       }
 
       .avatar {
@@ -1390,11 +1394,14 @@
         <!-- 消息流 -->
         <div class="chat-messages" id="chatMessages">
           <div class="welcome-card">
-            <h2>👋 欢迎体验星云智联（NebulaLink）企业级智能客服 Agent</h2>
-            <p>
+            <h2>👋 欢迎使用星云智联（NebulaLink）智能客服</h2>
+            <p class="welcome-desktop-desc">
               本系统面向星云智联无线耳机全线产品（<code>NL-Pro2026</code>、<code>NL-Air3</code>、<code>NL-Studio</code>），
               支持<strong>混合检索知识库问答</strong>、<strong>实时订单查询</strong>、<strong>售后工单创建</strong>与<strong>高风险诉求转接人工</strong>。
               每次对话后，右侧面板将完整透明地展示命中的知识库原文片段、工具调用入参/出参与响应耗时。
+            </p>
+            <p class="welcome-mobile-desc">
+              为您提供星云智联耳机（<code>NL-Pro2026</code>、<code>NL-Air3</code>、<code>NL-Studio</code>）的产品咨询、订单查询、售后报修与人工转接服务，请直接输入您的问题。
             </p>
             <div class="welcome-badges">
               <span class="welcome-badge">🔍 Chroma + jieba BM25 + RRF</span>
@@ -2192,7 +2199,7 @@
       });
 
       const DESKTOP_PLACEHOLDER = "输入您的问题，例如：查询订单 NL20261118006 的状态，或咨询 NL-Pro2026 降噪参数...（Enter 发送，Shift+Enter 换行）";
-      const MOBILE_PLACEHOLDER = "输入问题或订单号（如 NL20261118006）...";
+      const MOBILE_PLACEHOLDER = "输入问题或订单号...";
 
       function syncResponsivePlaceholder() {
         chatInput.placeholder = isMobileViewport() ? MOBILE_PLACEHOLDER : DESKTOP_PLACEHOLDER;
